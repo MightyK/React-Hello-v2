@@ -11,11 +11,11 @@ const App = () => {
         setHeadingText(`Hello ${firstName} ${lastName}!`);
     }
 
-    const handleFirstChange = () => {
+    const handleFirstChange = (event) => {
         setFirstName(event.target.value);
     }
     
-    const handleLastChange = () => {
+    const handleLastChange = (event) => {
         setLastName(event.target.value);
     }
 
