@@ -13,7 +13,7 @@ const App = () => {
     const [color, setColor] = useState({backgroundColor:'white'});
 
     const handleClick = () => {
-        setHeadingText(`Hello ${fullName.fName} ${fullName.lName}!`);
+        setHeadingText(`Hello ${fName} ${lName}!`);
     }
     
     
