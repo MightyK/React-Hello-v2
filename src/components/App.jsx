@@ -2,34 +2,45 @@
 import React, {useState} from 'react';
 
 const App = () => {
-    const [fullName, setFullName] = useState({
+    const [contact, setContact] = useState({
         fName: '',
-        lName: ''
+        lName: '',
+        email: ''
     });
     
-    const {fName, lName} = fullName;
+    const {fName, lName, email} = contact;
 
     const [headingText, setHeadingText] = useState('Hello');
     const [color, setColor] = useState({backgroundColor:'white'});
+    const [mail, setMail] = useState('');
 
     const handleClick = () => {
         setHeadingText(`Hello ${fName} ${lName}!`);
+        setMail(email);
     }
     
     
     const handleChange = (event) => {
         const {value, name} = event.target;
         
-        setFullName((prevValue) => {
+        setContact((prevValue) => {
             if (name === 'fName') {
                 return {
                     fName: value,
-                    lName: prevValue.lName
+                    lName: prevValue.lName,
+                    email: prevValue.email
                 }
             } else if (name === 'lName') {
                 return {
                     fName: prevValue.fName,
-                    lName: value
+                    lName: value,
+                    email: prevValue.email
+                }
+            } else if (name === 'email') {
+                return {
+                    fName: prevValue.fName,
+                    lName: prevValue.lName,
+                    email: value
                 }
             }
         });
@@ -47,6 +58,7 @@ const App = () => {
     return (
         <div className='container'>
             <h1>{headingText}</h1>
+            <p>{mail}</p>
 
                 <input 
                     name='fName' 
@@ -59,6 +71,12 @@ const App = () => {
                     placeholder='Last Name' 
                     onChange={handleChange}    
                     value={lName}
+                />
+                <input
+                    name='email'
+                    placeholder='Email'
+                    onChange={handleChange}
+                    value={email}
                 />
                 <button 
                     onClick={handleClick}
