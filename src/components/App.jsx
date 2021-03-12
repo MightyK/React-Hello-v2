@@ -24,7 +24,13 @@ const App = () => {
         const {value, name} = event.target;
         
         setContact((prevValue) => {
-            if (name === 'fName') {
+            return {
+                ...prevValue,
+                [name]: value
+            }
+            
+            // DOES THE SAME THING AS THE ABOVE CODE
+            /* if (name === 'fName') {
                 return {
                     fName: value,
                     lName: prevValue.lName,
@@ -42,7 +48,7 @@ const App = () => {
                     lName: prevValue.lName,
                     email: value
                 }
-            }
+            } */
         });
     }
 
